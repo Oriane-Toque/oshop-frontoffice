@@ -1,10 +1,10 @@
 <?php
 
-  class MainController {
+  class CatalogController {
 
-    public function home() {
+    public function category() {
 
-      $this->show('home');
+      $this->show('product.list');
     }
 
     private function show($viewName, $viewVars = []) {
