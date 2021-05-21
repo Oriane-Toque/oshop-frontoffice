@@ -2,7 +2,7 @@
 
   class CatalogController {
 
-    public function category() {
+    public function category($routeVarInfos) {
 
       $this->show('product.list');
     }
