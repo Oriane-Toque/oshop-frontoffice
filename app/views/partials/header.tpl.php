@@ -50,19 +50,19 @@
               <a href="./" class="nav-link active">Home</a>
             </li>
             <li class="nav-item">
-              <a href="./category" class="nav-link">Catégories</a>
+              <a href="./category/0" class="nav-link">Catégories</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Types de produit</a>
+              <a href="./type/0" class="nav-link">Types de produit</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Marques</a>
+              <a href="./brand/0" class="nav-link">Marques</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Blog</a>
+              <a href="./" class="nav-link">Blog</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Contact</a>
+              <a href="./" class="nav-link">Contact</a>
             </li>
           </ul>
           <div class="d-flex align-items-center justify-content-between justify-content-lg-end mt-1 mb-2 my-lg-0">

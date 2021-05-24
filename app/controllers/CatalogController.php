@@ -7,6 +7,21 @@
       $this->show('product.list');
     }
 
+    public function product($routeVarInfos) {
+
+      $this->show('product');
+    }
+
+    public function type($routeVarInfos) {
+
+      $this->show('type');
+    }
+
+    public function brand($routeVarInfos) {
+
+      $this->show('brand');
+    }
+
     private function show($viewName, $viewVars = []) {
 
       require_once __DIR__.'/../views/partials/header.tpl.php';
