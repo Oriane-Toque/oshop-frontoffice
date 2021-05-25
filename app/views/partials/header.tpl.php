@@ -69,7 +69,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Types de produit</a>
+                            <a href="<?= $router->generate( 'catalog.type', [ 'id' => 2 ] ) ?>" class="nav-link">Types de produit</a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= $router->generate( 'catalog.brand', [ 'id' => 2 ] ) ?>" class="nav-link">Marques</a>

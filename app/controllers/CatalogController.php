@@ -25,7 +25,13 @@
 
     public function type($routeVarInfos) {
 
-      $this->show('product.list');
+      $type = new Type();
+
+      $type = $type->find($routeVarInfos['id']);
+
+      $viewVars = ['type' => $type];
+
+      $this->show('product.list', $viewVars);
     }
 
     public function brand($routeVarInfos) {
