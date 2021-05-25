@@ -12,6 +12,7 @@
 
   // on inclut nos models
   require_once __DIR__.'/../app/models/Category.php';
+  require_once __DIR__.'/../app/models/Brand.php';
   
   // on récupère notre partie fixe de l'url
   $baseURL = $_SERVER['BASE_URI'];

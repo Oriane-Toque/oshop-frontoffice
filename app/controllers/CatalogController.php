@@ -30,7 +30,12 @@
 
     public function brand($routeVarInfos) {
 
-      $this->show('product.list');
+      $brand = new Brand();
+      $brand = $brand->find($routeVarInfos['id']);
+
+      $viewVars = ['brand' => $brand];
+
+      $this->show('product.list', $viewVars);
     }
 
     private function show($viewName, $viewVars = []) {
