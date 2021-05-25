@@ -9,17 +9,17 @@
 
     public function product($routeVarInfos) {
 
-      $this->show('product');
+      $this->show('product.list');
     }
 
     public function type($routeVarInfos) {
 
-      $this->show('type');
+      $this->show('product.list');
     }
 
     public function brand($routeVarInfos) {
 
-      $this->show('brand');
+      $this->show('product.list');
     }
 
     private function show($viewName, $viewVars = []) {
