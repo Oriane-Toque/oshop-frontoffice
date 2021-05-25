@@ -132,10 +132,10 @@
     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.24.7'><\/script>".replace("HOST", location.hostname));
 //]]></script>
   <!-- JS -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src="<? $_SERVER['BASE_URI'] ?>/assets/js/jquery.min.js"></script>
+  <script src="<? $_SERVER['BASE_URI'] ?>/assets/js/popper.min.js"></script>
+  <script src="<? $_SERVER['BASE_URI'] ?>/assets/js/bootstrap.min.js"></script>
+  <script src="<? $_SERVER['BASE_URI'] ?>/assets/js/app.js"></script>
 </body>
 
 </html>
