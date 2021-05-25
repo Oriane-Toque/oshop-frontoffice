@@ -1,7 +1,5 @@
 <?php
 
-  // connexion : fCTZ2g8z5
-
   // DANS LE CADRE D'ACTIVE RECORD
   // - Une classe = une table en DB = une entité en MCD
   // - Une propriété de cette classe = un champ de cette table

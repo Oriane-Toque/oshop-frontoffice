@@ -2,9 +2,16 @@
   // on inclus l'autoload de composer qui va chercher tout le code
   // on ne push pas le dossier vendor, only composer.json & composer.lock
   require_once __DIR__.'/../vendor/autoload.php';
+
+  // nos utilitaires
+  require_once __DIR__.'/../app/utils/Database.php';
+
   // point d'entrée unique pour toutes les pages de notre projet
   require_once __DIR__.'/../app/controllers/MainController.php';
   require_once __DIR__.'/../app/controllers/CatalogController.php';
+
+  // on inclut nos models
+  require_once __DIR__.'/../app/models/Category.php';
   
   // on récupère notre partie fixe de l'url
   $baseURL = $_SERVER['BASE_URI'];
