@@ -39,7 +39,7 @@
       <!-- product-->
       <div class="product col-xl-3 col-lg-4 col-sm-6">
         <div class="product-image">
-          <a href="detail.html" class="product-hover-overlay-link">
+          <a href="details.html" class="product-hover-overlay-link">
             <img src="<?= $_SERVER['BASE_URI'] ?>/assets/images/produits/1-kiss_tn.jpg" alt="product" class="img-fluid">
           </a>
         </div>

@@ -6,40 +6,47 @@
   // - Un objet instancié de cette classe = une ligne dans la table (un enregistrement)
 
   // nom de la classe = nom de la table
-  class Type {
+  class Product {
 
     // propriétés = lignes de nos tables
     private $id;
     private $name;
-    private $footer_order;
+    private $description;
+    private $picture;
+    private $price;
+    private $rate;
+    private $status;
     private $created_at;
     private $updated_at;
+    private $brand_id;
+    private $category_id;
+    private $type_id;
 
-    // TODO méthode qui récupère le type d'un id donné
+    // TODO méthode qui récupère le produit d'un id donné
     public function find($id) {
       
       $pdo = Database::getPDO();
 
       $sql = "
         SELECT *
-        FROM `type`
+        FROM `product`
         WHERE `id` = $id
       ";
 
       $pdoStatment = $pdo->query($sql);
-      $result = $pdoStatment->fetchObject('type');
+      $result = $pdoStatment->fetchObject('product');
       dump($result);
       return $result;
     }
 
-    // TODO méthode qui récupère tous les types
+    // TODO méthode qui récupère toutes les produits
     public function findAll() {
 
       $pdo = Database::getPDO();
 
       $sql = "
         SELECT *
-        FROM `type`
+        FROM `product`
       ";
 
       $pdoStatment = $pdo->query($sql);
@@ -48,23 +55,28 @@
       return $result;
     }
 
-    // TODO méthode qui récupére tous les produits d'un type donné
-    public function productType($id) {
+    /**
+     * Get the value of type_id
+     */ 
+    public function getTypeId()
+    {
+          return $this->type_id;
+    }
 
-      $pdo = Database::getPDO();
+    /**
+     * Get the value of category_id
+     */ 
+    public function getCategoryId()
+    {
+          return $this->category_id;
+    }
 
-      $sql = "
-        SELECT *
-        FROM `product`
-        INNER JOIN `type`
-        ON `product`.`type_id` = `type`.`id`
-        WHERE `type_id` = $id
-      ";
-
-      $pdoStatment = $pdo->query($sql);
-      $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS);
-
-      return $result;
+    /**
+     * Get the value of brand_id
+     */ 
+    public function getBrandId()
+    {
+          return $this->brand_id;
     }
 
     /**
@@ -84,11 +96,43 @@
     }
 
     /**
-     * Get the value of footer_order
+     * Get the value of status
      */ 
-    public function getFooterOrder()
+    public function getStatus()
     {
-          return $this->footer_order;
+          return $this->status;
+    }
+
+    /**
+     * Get the value of rate
+     */ 
+    public function getRate()
+    {
+          return $this->rate;
+    }
+
+    /**
+     * Get the value of price
+     */ 
+    public function getPrice()
+    {
+          return $this->price;
+    }    
+
+    /**
+     * Get the value of picture
+     */ 
+    public function getPicture()
+    {
+          return $this->picture;
+    }
+
+    /**
+     * Get the value of description
+     */ 
+    public function getDescription()
+    {
+          return $this->description;
     }
 
     /**

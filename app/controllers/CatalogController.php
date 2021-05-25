@@ -20,7 +20,13 @@
 
     public function product($routeVarInfos) {
 
-      $this->show('product');
+      $product = new Product();
+
+      $product = $product->find($routeVarInfos['id']);
+
+      $viewVars = ['product' => $product];
+
+      $this->show('product', $viewVars);
     }
 
     public function type($routeVarInfos) {
