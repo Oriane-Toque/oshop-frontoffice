@@ -50,7 +50,7 @@
 
   // match ne fait que retourner les infos de la route qui correspond, c'est à nous d'executer la bonne fonction !
   $routeInfo = $router->match();
-  dump($routeInfo);
+  /* dump($routeInfo); */
 
   // GERER L'ERREUR 404 SI $routeInfo VAUT FALSE
   // réparation du css
@@ -65,7 +65,7 @@
   // dispatcher : c'est celui qui instancie le bon controleur qui execute la bonne méthode
   // les 2 informations se trouvent dans routeInfo['target'] sauf qu'on a besoin de les séparer. Actuellement elles sont collées par un symbole, @
   $routeInfoArray = explode('@', $routeInfo['target']);
-  dump($routeInfoArray);
+  /* dump($routeInfoArray); */
   $controllerName = $routeInfoArray[0];
   $methodName = $routeInfoArray[1];
 
