@@ -88,3 +88,26 @@ INNER JOIN `type`
 ON `product`.`type_id` = `type`.`id`
 WHERE `type_id` = 2
 ```
+
+## Mega Bonus SQL
+
+### Récupérer le nom et le prix des produits de la catégorie dont l'id est #1 ainsi que le nom de la catégorie
+
+```sql
+SELECT `product`.`name` AS `name_product`, 
+`category`.`name` AS `name_category`,  
+`price`
+FROM `product`
+INNER JOIN `category`
+ON `product`.`category_id` = `category`.`id`
+```
+
+### Récupérer le nombre de produits pour chaque catégorie
+
+```sql
+SELECT COUNT(`category`.`name`) AS `nbr`,  `category`.`id`, `category`.`name`
+FROM `product`
+INNER JOIN `category`
+ON `product`.`category_id` = `category`.`id`
+GROUP BY `category`.`id`
+```
