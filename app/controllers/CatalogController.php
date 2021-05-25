@@ -9,7 +9,7 @@
 
     public function product($routeVarInfos) {
 
-      $this->show('product.list');
+      $this->show('product');
     }
 
     public function type($routeVarInfos) {
