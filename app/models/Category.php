@@ -31,8 +31,8 @@
         $pdoStatement = $pdo->query($sql);
         // récupération du résultat sous la forme d'un tableau assiocatif
         $result = $pdoStatement->fetchObject('Category');
-        dump($result);
-
+        /* dump($result); */
+        
         // on renvoit le résultat
         return $result;
       }
@@ -40,5 +40,73 @@
       public function findAll() {
 
         // TODO : récupérer toutes les catégories sous la forme d'un tableau d'objets Category
+        $pdo = Database::getPDO();
+
+        $sql = "
+          SELECT *
+          FROM `category`
+        ";
+
+        $pdoStatement = $pdo->query($sql);
+        $result = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'category');
+        /* dump($result); */
+
+        return $result;
+      }
+
+      /**
+       * Get the value of updated_at
+       */ 
+      public function getUpdatedAt()
+      {
+            return $this->updated_at;
+      }
+
+      /**
+       * Get the value of created_at
+       */ 
+      public function getCreatedAt()
+      {
+            return $this->created_at;
+      }
+
+      /**
+       * Get the value of home_order
+       */ 
+      public function getHomeOrder()
+      {
+            return $this->home_order;
+      }
+
+      /**
+       * Get the value of pîcture
+       */ 
+      public function getPîcture()
+      {
+            return $this->pîcture;
+      }
+
+      /**
+       * Get the value of subtitle
+       */ 
+      public function getSubtitle()
+      {
+            return $this->subtitle;
+      }
+
+      /**
+       * Get the value of id
+       */ 
+      public function getId()
+      {
+            return $this->id;
+      }
+
+      /**
+       * Get the value of name
+       */ 
+      public function getName()
+      {
+            return $this->name;
       }
     }

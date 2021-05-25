@@ -4,12 +4,18 @@
 
     public function category($routeVarInfos) {
 
-      $this->show('product.list');
-
       // on instancie notre model
       $category = new Category();
       // on appelle ensuite sa méthode find pour récupérer la bonne catégorie
-      $category->find($routeVarInfos['id']);
+      $category = $category->find($routeVarInfos['id']);
+      /* dump($category->getName()); */
+
+      /* $category->findAll(); */
+
+      $viewVars = [ 'category' => $category ];
+
+      $this->show('product.list', $viewVars);
+
     }
 
     public function product($routeVarInfos) {
