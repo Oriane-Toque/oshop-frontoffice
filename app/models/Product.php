@@ -6,7 +6,7 @@
 // - Un objet instancié de cette classe = une ligne dans la table (un enregistrement)
 
 // nom de la classe = nom de la table
-class Product
+class Product extends CoreModel
 {
 
   //=============================================================
@@ -14,15 +14,11 @@ class Product
   //=============================================================
 
   // propriétés = lignes de nos tables
-  private $id;
-  private $name;
   private $description;
   private $picture;
   private $price;
   private $rate;
   private $status;
-  private $created_at;
-  private $updated_at;
   private $brand_id;
   private $category_id;
   private $type_id;
@@ -112,22 +108,6 @@ class Product
   }
 
   /**
-   * Get the value of updated_at
-   */
-  public function getUpdatedAt()
-  {
-    return $this->updated_at;
-  }
-
-  /**
-   * Get the value of created_at
-   */
-  public function createdAt()
-  {
-    return $this->created_at;
-  }
-
-  /**
    * Get the value of status
    */
   public function getStatus()
@@ -165,21 +145,5 @@ class Product
   public function getDescription()
   {
     return $this->description;
-  }
-
-  /**
-   * Get the value of name
-   */
-  public function getName()
-  {
-    return $this->name;
-  }
-
-  /**
-   * Get the value of id
-   */
-  public function getId()
-  {
-    return $this->id;
   }
 }

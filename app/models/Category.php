@@ -1,7 +1,7 @@
 <?php
 
 // nom de la classe = nom de la table
-class Category
+class Category extends CoreModel
 {
 
   //=============================================================
@@ -9,13 +9,9 @@ class Category
   //=============================================================
 
   // propriétés = lignes de nos tables
-  private $id;
-  private $name;
   private $subtitle;
   private $pîcture;
   private $home_order;
-  private $created_at;
-  private $updated_at;
 
   //=============================================================
   // METHODS
@@ -88,22 +84,6 @@ class Category
   //=============================================================
 
   /**
-   * Get the value of updated_at
-   */
-  public function getUpdatedAt()
-  {
-    return $this->updated_at;
-  }
-
-  /**
-   * Get the value of created_at
-   */
-  public function getCreatedAt()
-  {
-    return $this->created_at;
-  }
-
-  /**
    * Get the value of home_order
    */
   public function getHomeOrder()
@@ -125,21 +105,5 @@ class Category
   public function getSubtitle()
   {
     return $this->subtitle;
-  }
-
-  /**
-   * Get the value of id
-   */
-  public function getId()
-  {
-    return $this->id;
-  }
-
-  /**
-   * Get the value of name
-   */
-  public function getName()
-  {
-    return $this->name;
   }
 }

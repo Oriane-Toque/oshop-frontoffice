@@ -11,6 +11,7 @@
   require_once __DIR__.'/../app/controllers/CatalogController.php';
 
   // on inclut nos models
+  require_once __DIR__.'/../app/models/CoreModel.php';
   require_once __DIR__.'/../app/models/Category.php';
   require_once __DIR__.'/../app/models/Brand.php';
   require_once __DIR__.'/../app/models/Type.php';

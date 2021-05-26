@@ -6,7 +6,7 @@
 // - Un objet instancié de cette classe = une ligne dans la table (un enregistrement)
 
 // nom de la classe = nom de la table
-class Brand
+class Brand extends CoreModel
 {
 
   //=============================================================
@@ -14,11 +14,7 @@ class Brand
   //=============================================================
 
   // propriétés = lignes de nos tables
-  private $id;
-  private $name;
   private $footer_order;
-  private $created_at;
-  private $updated_at;
 
   //=============================================================
   // METHODS
@@ -84,42 +80,10 @@ class Brand
   //=============================================================
 
   /**
-   * Get the value of updated_at
-   */
-  public function getUpdatedAt()
-  {
-    return $this->updated_at;
-  }
-
-  /**
-   * Get the value of created_at
-   */
-  public function createdAt()
-  {
-    return $this->created_at;
-  }
-
-  /**
    * Get the value of footer_order
    */
   public function getFooterOrder()
   {
     return $this->footer_order;
-  }
-
-  /**
-   * Get the value of name
-   */
-  public function getName()
-  {
-    return $this->name;
-  }
-
-  /**
-   * Get the value of id
-   */
-  public function getId()
-  {
-    return $this->id;
   }
 }
