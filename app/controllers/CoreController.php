@@ -17,16 +17,20 @@
 
       $this->commonViewVars['footerTypes'] = $footerTypes;
       $this->commonViewVars['footerBrands'] = $footerBrands;
-
-      dump($this->commonViewVars);
     }
 
     protected function show($viewName, $viewVars = []) {
 
       global $router;
 
+      $viewVars += [
+        'footerTypes' => $this->commonViewVars['footerTypes'],
+        'footerBrands' => $this->commonViewVars['footerBrands']
+      ];
+
       require_once __DIR__.'/../views/partials/header.tpl.php';
       require_once __DIR__.'/../views/'.$viewName.'.tpl.php';
       require_once __DIR__.'/../views/partials/footer.tpl.php';
     }
+
   }
