@@ -111,3 +111,75 @@ INNER JOIN `category`
 ON `product`.`category_id` = `category`.`id`
 GROUP BY `category`.`id`
 ```
+
+## CORRECTION
+
+### Récupérer les 5 catégories mises en avant, dans l'ordre
+
+```sql
+SELECT *
+FROM `category`
+WHERE `home_order` > 0
+ORDER BY `home_order`
+ASC
+```
+
+### Récupérer les 5 marques dans le footer, dans l'ordre
+
+```sql
+SELECT *
+FROM `brand`
+WHERE `footer_order` > 0
+ORDER BY `footer_order`
+ASC
+```
+
+### Récupérer les 5 types dans le footer, dans l'ordre
+
+```sql
+SELECT *
+FROM `type`
+WHERE `footer_order` > 0
+ORDER BY `footer_order`
+ASC
+```
+
+### Récupérer les produits d'une catégorie, triés par nom
+
+```sql
+SELECT *
+FROM `product`
+WHERE `category_id` = $category_id
+ORDER BY `name`
+ASC
+```
+
+### Récupérer les produits d'une catégorie, triés par prix
+
+```sql
+SELECT *
+FROM `product`
+WHERE `category_id` = $category_id
+ORDER BY `price`
+ASC
+```
+
+### Récupérer les produits d'une catégorie, triés par note
+
+```sql
+SELECT *
+FROM `product`
+WHERE `category_id` = $category_id
+ORDER BY `rate`
+ASC
+```
+
+### Récupérer les produits d'une catégorie, triés par note (inversée)
+
+```sql
+SELECT *
+FROM `product`
+WHERE `category_id` = $category_id
+ORDER BY `rate`
+DESC
+```
