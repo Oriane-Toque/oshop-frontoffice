@@ -22,7 +22,7 @@
 
     <header class="product-grid-header d-flex align-items-center justify-content-between">
       <div class="mr-3 mb-3">
-        Affichage <strong>1-12 </strong>de <strong>158 </strong>résultats
+        Affichage de <strong><?= count($viewVars['products']); ?> </strong>résultats
       </div>
       <div class="mr-3 mb-3"><span class="mr-2">Voir</span><a href="#" class="product-grid-header-show active">12 </a><a href="#" class="product-grid-header-show ">24 </a><a href="#" class="product-grid-header-show ">Tout </a>
       </div>
@@ -36,6 +36,13 @@
       </div>
     </header>
     <div class="row">
+
+    <?php 
+      if(count($viewVars['products']) === 0) : 
+        echo '<h2>Aucun produit dans cette catégorie</h2>';
+      endif;
+    ?>
+
       <!-- product-->
       <?php foreach($viewVars['products'] as $currentProduct) : ?>
       <div class="product col-xl-3 col-lg-4 col-sm-6">

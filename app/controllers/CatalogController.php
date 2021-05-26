@@ -14,7 +14,7 @@
       // on a besoin de récupérer les produits par catégorie
       $productModel = new Product();
       // vu qu'on a récupéré la catégorie précédemment, on peut utiliser notre variable $category et récupérer son id grace à son getter
-      $products = $productModel->findByCategory($category->getId());
+      $products = $productModel->findByCategory($routeVarInfos['id']);
 
       // création de clés => valeurs
       $viewVars = [ 
@@ -22,8 +22,11 @@
         'products' => $products
       ];
 
-      $this->show('product.list', $viewVars);
-
+      if ($category === false) :
+        echo '<h2>Catégorie introuvable</h2>';
+      else :
+        $this->show('product.list', $viewVars);
+      endif;
     }
 
     public function product($routeVarInfos) {
