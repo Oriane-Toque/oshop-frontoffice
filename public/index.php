@@ -7,6 +7,7 @@
   require_once __DIR__.'/../app/utils/Database.php';
 
   // point d'entrée unique pour toutes les pages de notre projet
+  require_once __DIR__.'/../app/controllers/CoreController.php';
   require_once __DIR__.'/../app/controllers/MainController.php';
   require_once __DIR__.'/../app/controllers/CatalogController.php';
 
