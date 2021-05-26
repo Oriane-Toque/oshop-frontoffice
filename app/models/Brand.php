@@ -37,7 +37,7 @@ class Brand
     ";
 
     $pdoStatment = $pdo->query($sql);
-    $result = $pdoStatment->fetchObject('brand');
+    $result = $pdoStatment->fetchObject('Brand');
     dump($result);
     return $result;
   }
@@ -54,7 +54,7 @@ class Brand
     ";
 
     $pdoStatment = $pdo->query($sql);
-    $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS);
+    $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, 'Brand');
 
     return $result;
   }
@@ -74,7 +74,7 @@ class Brand
     ";
 
     $pdoStatment = $pdo->query($sql);
-    $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS);
+    $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, 'Brand');
 
     return $result;
   }

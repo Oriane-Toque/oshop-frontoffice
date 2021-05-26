@@ -37,7 +37,7 @@ class Type
     ";
 
     $pdoStatment = $pdo->query($sql);
-    $result = $pdoStatment->fetchObject('type');
+    $result = $pdoStatment->fetchObject('Type');
     dump($result);
     return $result;
   }
@@ -54,7 +54,7 @@ class Type
     ";
 
     $pdoStatment = $pdo->query($sql);
-    $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS);
+    $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, 'Type');
 
     return $result;
   }
@@ -74,7 +74,7 @@ class Type
     ";
 
     $pdoStatment = $pdo->query($sql);
-    $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS);
+    $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, 'Type');
 
     return $result;
   }
