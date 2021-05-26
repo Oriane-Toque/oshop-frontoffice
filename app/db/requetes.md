@@ -183,3 +183,19 @@ WHERE `category_id` = $category_id
 ORDER BY `rate`
 DESC
 ```
+
+### Récupérer les produits d'une marque spécifique (tri variable)
+
+```sql
+SELECT *
+FROM `product`
+WHERE `brand_id` = $brand_id
+```
+
+### Récupérer les produits d'un type spécifique (tri variable)
+
+```sql
+SELECT *
+FROM `product`
+WHERE `type_id` = $type_id
+```
