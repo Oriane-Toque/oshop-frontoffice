@@ -4,6 +4,10 @@
 class Category
 {
 
+  //=============================================================
+  // PROPERTIES
+  //=============================================================
+
   // propriétés = lignes de nos tables
   private $id;
   private $name;
@@ -12,6 +16,10 @@ class Category
   private $home_order;
   private $created_at;
   private $updated_at;
+
+  //=============================================================
+  // METHODS
+  //=============================================================
 
   // methode qui va intéragir avec la BDD
   // fait un objet qui représente la ligne dans la BDD
@@ -74,6 +82,10 @@ class Category
     return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Category');
 
   }
+
+  //=============================================================
+  // GETTERS
+  //=============================================================
 
   /**
    * Get the value of updated_at

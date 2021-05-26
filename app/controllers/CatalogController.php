@@ -12,7 +12,7 @@
 
       /* $category->findAll(); */
 
-      $viewVars = [ 'category' => $category ];
+      $viewVars = [ 'Category' => $category ];
 
       $this->show('product.list', $viewVars);
 
