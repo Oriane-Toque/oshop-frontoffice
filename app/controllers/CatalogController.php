@@ -28,34 +28,17 @@
 
     public function product($routeVarInfos) {
 
-      $product = new Product();
-
-      $product = $product->find($routeVarInfos['id']);
-
-      $viewVars = ['product' => $product];
-
-      $this->show('product', $viewVars);
+      $this->show('product');
     }
 
     public function type($routeVarInfos) {
 
-      $type = new Type();
-
-      $type = $type->find($routeVarInfos['id']);
-
-      $viewVars = ['type' => $type];
-
-      $this->show('product.list', $viewVars);
+      $this->show('product.list');
     }
 
     public function brand($routeVarInfos) {
 
-      $brand = new Brand();
-      $brand = $brand->find($routeVarInfos['id']);
-
-      $viewVars = ['brand' => $brand];
-
-      $this->show('product.list', $viewVars);
+      $this->show('product.list');
     }
 
     private function show($viewName, $viewVars = []) {

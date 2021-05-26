@@ -49,7 +49,7 @@
           <a href="detail.html" class="btn btn-dark btn-buy"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">Voir</span></a>
         </div>
         <div class="py-2">
-          <p class="text-muted text-sm mb-1"><?= $currentProduct->getTypeId(); ?></p>
+          <p class="text-muted text-sm mb-1"><?= $viewVars['category']->getName(); ?></p>
           <h3 class="h6 text-uppercase mb-1"><a href="detail.html" class="text-dark"><?= $currentProduct->getName(); ?></a></h3><span class="text-muted"><?= $currentProduct->getPrice(); ?></span>
         </div>
       </div>
