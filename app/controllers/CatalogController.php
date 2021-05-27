@@ -39,7 +39,6 @@
       $productModel = new Product();
       $product = $productModel->find($routeVarInfos['id']);
 
-
       $viewVars = [
         'product' => $product
       ];
