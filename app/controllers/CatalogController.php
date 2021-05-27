@@ -31,7 +31,17 @@
 
     public function product($routeVarInfos) {
 
-      $this->show('product');
+      $productModel = new Product();
+      $product = $productModel->find($routeVarInfos['id']);
+
+
+      $viewVars = [
+        'product' => $product
+      ];
+
+      dump($viewVars);
+
+      $this->show('product', $viewVars);
     }
 
     public function type($routeVarInfos) {
