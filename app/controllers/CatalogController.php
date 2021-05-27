@@ -37,6 +37,7 @@
     public function type($routeVarInfos) {
 
       $this->show('product.list');
+
     }
 
     public function brand($routeVarInfos) {

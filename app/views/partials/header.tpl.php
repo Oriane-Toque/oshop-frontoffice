@@ -64,15 +64,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $router->generate( 'catalog.category', [ 'id' => 2 ] ) ?>" class="nav-link">
-                                Catégorie #2
+                            <a href="<?= $router->generate( 'catalog.category', [ 'id' => 1 ] ) ?>" class="nav-link">
+                                Catégorie #1
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $router->generate( 'catalog.type', [ 'id' => 2 ] ) ?>" class="nav-link">Types de produit</a>
+                            <a href="#" class="nav-link">Types de produit</a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $router->generate( 'catalog.brand', [ 'id' => 2 ] ) ?>" class="nav-link">Marques</a>
+                            <a href="#" class="nav-link">Marques</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Blog</a>

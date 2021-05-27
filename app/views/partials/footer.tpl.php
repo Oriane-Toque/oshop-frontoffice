@@ -86,10 +86,11 @@
           <ul class="list-unstyled">
           <?php foreach($viewVars['common']['footerTypes'] as $currentType) : ?>
             <li>
-              <a href="#" class="text-muted">
+              <a href="<?= $router->generate('catalog.type', ['id' => $currentType->getId()]); ?>" class="text-muted">
                 <?= $currentType->getName(); ?>
               </a>
             </li>
+            
           <?php endforeach; ?>
           </ul>
         </div>
@@ -100,7 +101,7 @@
           <ul class="list-unstyled">
           <?php foreach($viewVars['common']['footerBrands'] as $currentBrand) : ?>
             <li>
-              <a href="#" class="text-muted">
+              <a href="<?= $router->generate('catalog.brand', ['id' => $currentBrand->getId()]); ?>" class="text-muted">
                 <?= $currentBrand->getName(); ?>
               </a>
             </li>
