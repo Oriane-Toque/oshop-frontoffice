@@ -13,7 +13,7 @@
 
     // propriétés = lignes de nos tables
     private $subtitle;
-    private $pîcture;
+    private $picture;
     private $home_order;
 
     //=============================================================
@@ -82,6 +82,24 @@
 
     }
 
+    public function findByOrderHome()
+    {
+      $pdo = Database::getPDO();
+
+      $sql = "
+        SELECT *
+        FROM `category`
+        WHERE `home_order` > 0
+        ORDER BY `home_order`
+        ASC
+      ";
+
+      $pdoStatement = $pdo->query($sql);
+      $result = $pdoStatement->fetchAll(PDO:: FETCH_CLASS, '\app\models\Category');
+
+      return $result;
+    }
+
     //=============================================================
     // GETTERS
     //=============================================================
@@ -97,9 +115,9 @@
     /**
      * Get the value of pîcture
      */
-    public function getPîcture()
+    public function getPicture()
     {
-      return $this->pîcture;
+      return $this->picture;
     }
 
     /**
