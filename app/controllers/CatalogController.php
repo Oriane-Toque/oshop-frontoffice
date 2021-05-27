@@ -4,7 +4,7 @@
 
     public function category($routeVarInfos) {
 
-      dump($routeVarInfos);
+      // dump($routeVarInfos);
       // on instancie notre model
       $category = new Category();
       // on appelle ensuite sa méthode find pour récupérer la bonne catégorie

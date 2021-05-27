@@ -84,7 +84,7 @@
             Produits
           </h6>          
           <ul class="list-unstyled">
-          <?php foreach($viewVars['footerTypes'] as $currentType) : ?>
+          <?php foreach($viewVars['common']['footerTypes'] as $currentType) : ?>
             <li>
               <a href="#" class="text-muted">
                 <?= $currentType->getName(); ?>
@@ -98,7 +98,7 @@
             Marques
           </h6>
           <ul class="list-unstyled">
-          <?php foreach($viewVars['footerBrands'] as $currentBrand) : ?>
+          <?php foreach($viewVars['common']['footerBrands'] as $currentBrand) : ?>
             <li>
               <a href="#" class="text-muted">
                 <?= $currentBrand->getName(); ?>

@@ -23,10 +23,11 @@
 
       global $router;
 
-      $viewVars += [
-        'footerTypes' => $this->commonViewVars['footerTypes'],
-        'footerBrands' => $this->commonViewVars['footerBrands']
-      ];
+      // désavantage si il y a 2 tableaux avec une même clé remplacement clé xx#
+      /* $viewVars = array_merge($viewVars, $this->commonViewVars); */
+
+      // deuxième solution qu'on va utiliser
+      $viewVars['common'] = $this->commonViewVars;
 
       require_once __DIR__.'/../views/partials/header.tpl.php';
       require_once __DIR__.'/../views/'.$viewName.'.tpl.php';
