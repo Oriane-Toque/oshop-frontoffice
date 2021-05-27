@@ -24,11 +24,11 @@
           <h3 class="h3 text-uppercase mb-1"><?= $viewVars['product']->getName(); ?></h3>
           <div class="text-muted">by <em>BOOTstrap</em></div>
           <div>
-            <i class="fa fa-star<?php if($viewVars['product']->getRate() <= '0') : echo '-o'; endif;?>"></i>
-            <i class="fa fa-star<?php if($viewVars['product']->getRate() <= '1') : echo '-o'; endif;?>"></i>
-            <i class="fa fa-star<?php if($viewVars['product']->getRate() <= '2') : echo '-o'; endif;?>"></i>
-            <i class="fa fa-star<?php if($viewVars['product']->getRate() <= '3') : echo '-o'; endif;?>"></i>
-            <i class="fa fa-star<?php if($viewVars['product']->getRate() <= '4') : echo '-o'; endif;?>"></i>
+            <i class="fa fa-star<?php if($viewVars['product']->getRate() < '1') : echo '-o'; endif;?>"></i>
+            <i class="fa fa-star<?php if($viewVars['product']->getRate() < '2') : echo '-o'; endif;?>"></i>
+            <i class="fa fa-star<?php if($viewVars['product']->getRate() < '3') : echo '-o'; endif;?>"></i>
+            <i class="fa fa-star<?php if($viewVars['product']->getRate() < '4') : echo '-o'; endif;?>"></i>
+            <i class="fa fa-star<?php if($viewVars['product']->getRate() < '5') : echo '-o'; endif;?>"></i>
           </div>
         </div>
         <div class="my-2">

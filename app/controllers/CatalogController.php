@@ -44,8 +44,6 @@
         'product' => $product
       ];
 
-      dump($viewVars);
-
       $this->show('product', $viewVars);
     }
 

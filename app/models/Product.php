@@ -45,7 +45,7 @@
 
       $pdoStatment = $pdo->query($sql);
       $result = $pdoStatment->fetchObject('\app\models\Product');
-      dump($result);
+
       return $result;
     }
 

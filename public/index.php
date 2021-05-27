@@ -1,22 +1,8 @@
 <?php
   // on inclus l'autoload de composer qui va chercher tout le code
   // on ne push pas le dossier vendor, only composer.json & composer.lock
+  // quand on modifie le composer, il faut lui indiquer les changements : composer dump-autoload (à faire dans le terminal !)
   require_once __DIR__.'/../vendor/autoload.php';
-
-  // nos utilitaires
-  require_once __DIR__.'/../app/utils/Database.php';
-
-  // point d'entrée unique pour toutes les pages de notre projet
-  require_once __DIR__.'/../app/controllers/CoreController.php';
-  require_once __DIR__.'/../app/controllers/MainController.php';
-  require_once __DIR__.'/../app/controllers/CatalogController.php';
-
-  // on inclut nos models
-  require_once __DIR__.'/../app/models/CoreModel.php';
-  require_once __DIR__.'/../app/models/Category.php';
-  require_once __DIR__.'/../app/models/Brand.php';
-  require_once __DIR__.'/../app/models/Type.php';
-  require_once __DIR__.'/../app/models/Product.php';
 
   // on récupère notre partie fixe de l'url
   $baseURL = $_SERVER['BASE_URI'];
