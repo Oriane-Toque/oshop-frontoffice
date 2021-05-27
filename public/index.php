@@ -78,7 +78,8 @@
   // les 2 informations se trouvent dans routeInfo['target'] sauf qu'on a besoin de les séparer. Actuellement elles sont collées par un symbole, @
   $routeInfoArray = explode('@', $routeInfo['target']);
   /* dump($routeInfoArray); */
-  $controllerName = $routeInfoArray[0];
+  // Maintenant qu'on utilise des NameSpace il faut préciser le FQCN de la classe
+  $controllerName = "app\\controllers\\".$routeInfoArray[0];
   $methodName = $routeInfoArray[1];
 
   $controller = new $controllerName();

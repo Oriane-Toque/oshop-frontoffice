@@ -1,89 +1,94 @@
 <?php
 
-// DANS LE CADRE D'ACTIVE RECORD
-// - Une classe = une table en DB = une entité en MCD
-// - Une propriété de cette classe = un champ de cette table
-// - Un objet instancié de cette classe = une ligne dans la table (un enregistrement)
+  namespace app\models;
 
-// nom de la classe = nom de la table
-class Brand extends CoreModel
-{
+  use \app\utils\Database;
+  use \PDO;
 
-  //=============================================================
-  // PROPERTIES
-  //=============================================================
+  // DANS LE CADRE D'ACTIVE RECORD
+  // - Une classe = une table en DB = une entité en MCD
+  // - Une propriété de cette classe = un champ de cette table
+  // - Un objet instancié de cette classe = une ligne dans la table (un enregistrement)
 
-  // propriétés = lignes de nos tables
-  private $footer_order;
-
-  //=============================================================
-  // METHODS
-  //=============================================================
-
-  // TODO méthode qui récupère la marque d'un id donné
-  public function find($id)
+  // nom de la classe = nom de la table
+  class Brand extends CoreModel
   {
 
-    $pdo = Database::getPDO();
+    //=============================================================
+    // PROPERTIES
+    //=============================================================
 
-    $sql = "
-      SELECT *
-      FROM `brand`
-      WHERE `id` = $id
-    ";
+    // propriétés = lignes de nos tables
+    private $footer_order;
 
-    $pdoStatment = $pdo->query($sql);
-    $result = $pdoStatment->fetchObject('Brand');
-    dump($result);
-    return $result;
-  }
+    //=============================================================
+    // METHODS
+    //=============================================================
 
-  // TODO méthode qui récupère toutes les marques
-  public function findAll()
-  {
+    // TODO méthode qui récupère la marque d'un id donné
+    public function find($id)
+    {
 
-    $pdo = Database::getPDO();
+      $pdo = Database::getPDO();
 
-    $sql = "
-      SELECT *
-      FROM `brand`
-    ";
+      $sql = "
+        SELECT *
+        FROM `brand`
+        WHERE `id` = $id
+      ";
 
-    $pdoStatment = $pdo->query($sql);
-    $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, 'Brand');
+      $pdoStatment = $pdo->query($sql);
+      $result = $pdoStatment->fetchObject('Brand');
+      dump($result);
+      return $result;
+    }
 
-    return $result;
-  }
+    // TODO méthode qui récupère toutes les marques
+    public function findAll()
+    {
 
-  // TODO méthode qui récupére tous les produits d'une marque donnée
-  public function findForFooter()
-  {
+      $pdo = Database::getPDO();
 
-    $pdo = Database::getPDO();
+      $sql = "
+        SELECT *
+        FROM `brand`
+      ";
 
-    $sql = "
-      SELECT *
-      FROM `brand`
-      WHERE `footer_order` > 0
-      ORDER BY `footer_order`
-      ASC
-    ";
+      $pdoStatment = $pdo->query($sql);
+      $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Brand');
 
-    $pdoStatment = $pdo->query($sql);
-    $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, 'Brand');
+      return $result;
+    }
 
-    return $result;
-  }
+    // TODO méthode qui récupére tous les produits d'une marque donnée
+    public function findForFooter()
+    {
 
-  //=============================================================
-  // GETTERS
-  //=============================================================
+      $pdo = Database::getPDO();
 
-  /**
-   * Get the value of footer_order
-   */
-  public function getFooterOrder()
-  {
-    return $this->footer_order;
-  }
+      $sql = "
+        SELECT *
+        FROM `brand`
+        WHERE `footer_order` > 0
+        ORDER BY `footer_order`
+        ASC
+      ";
+
+      $pdoStatment = $pdo->query($sql);
+      $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Brand');
+
+      return $result;
+    }
+
+    //=============================================================
+    // GETTERS
+    //=============================================================
+
+    /**
+     * Get the value of footer_order
+     */
+    public function getFooterOrder()
+    {
+      return $this->footer_order;
+    }
 }

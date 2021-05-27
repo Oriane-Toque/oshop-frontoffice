@@ -1,149 +1,153 @@
 <?php
+  namespace app\models;
 
-// DANS LE CADRE D'ACTIVE RECORD
-// - Une classe = une table en DB = une entité en MCD
-// - Une propriété de cette classe = un champ de cette table
-// - Un objet instancié de cette classe = une ligne dans la table (un enregistrement)
+  use \app\utils\Database;
+  use \PDO;
 
-// nom de la classe = nom de la table
-class Product extends CoreModel
-{
+  // DANS LE CADRE D'ACTIVE RECORD
+  // - Une classe = une table en DB = une entité en MCD
+  // - Une propriété de cette classe = un champ de cette table
+  // - Un objet instancié de cette classe = une ligne dans la table (un enregistrement)
 
-  //=============================================================
-  // PROPERTIES
-  //=============================================================
-
-  // propriétés = lignes de nos tables
-  private $description;
-  private $picture;
-  private $price;
-  private $rate;
-  private $status;
-  private $brand_id;
-  private $category_id;
-  private $type_id;
-
-  //=============================================================
-  // METHODS
-  //=============================================================
-
-  // TODO méthode qui récupère le produit d'un id donné
-  public function find($id)
+  // nom de la classe = nom de la table
+  class Product extends CoreModel
   {
 
-    $pdo = Database::getPDO();
+    //=============================================================
+    // PROPERTIES
+    //=============================================================
 
-    $sql = "
-      SELECT *
-      FROM `product`
-      WHERE `id` = $id
-    ";
+    // propriétés = lignes de nos tables
+    private $description;
+    private $picture;
+    private $price;
+    private $rate;
+    private $status;
+    private $brand_id;
+    private $category_id;
+    private $type_id;
 
-    $pdoStatment = $pdo->query($sql);
-    $result = $pdoStatment->fetchObject('Product');
-    dump($result);
-    return $result;
-  }
+    //=============================================================
+    // METHODS
+    //=============================================================
 
-  // TODO méthode qui récupère toutes les produits
-  public function findAll()
-  {
+    // TODO méthode qui récupère le produit d'un id donné
+    public function find($id)
+    {
 
-    $pdo = Database::getPDO();
+      $pdo = Database::getPDO();
 
-    $sql = "
-      SELECT *
-      FROM `product`
-    ";
+      $sql = "
+        SELECT *
+        FROM `product`
+        WHERE `id` = $id
+      ";
 
-    $pdoStatment = $pdo->query($sql);
-    $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, 'Product');
+      $pdoStatment = $pdo->query($sql);
+      $result = $pdoStatment->fetchObject('\app\models\Product');
+      dump($result);
+      return $result;
+    }
 
-    return $result;
-  }
+    // TODO méthode qui récupère toutes les produits
+    public function findAll()
+    {
 
-  // TODO méthode qui retourne tous les produits d'une catégorie
-  public function findByCategory($category_id)
-  {
-    $pdo = Database::getPDO();
+      $pdo = Database::getPDO();
 
-    $sql = "
-      SELECT *
-      FROM `product`
-      WHERE `category_id` = $category_id
-    ";
+      $sql = "
+        SELECT *
+        FROM `product`
+      ";
 
-    $pdoStatment = $pdo->query($sql);
-    $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, 'Product');
+      $pdoStatment = $pdo->query($sql);
+      $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');
 
-    return $result;
-  }
+      return $result;
+    }
 
-  //=============================================================
-  // GETTERS
-  //=============================================================
+    // TODO méthode qui retourne tous les produits d'une catégorie
+    public function findByCategory($category_id)
+    {
+      $pdo = Database::getPDO();
 
-  /**
-   * Get the value of type_id
-   */
-  public function getTypeId()
-  {
-    return $this->type_id;
-  }
+      $sql = "
+        SELECT *
+        FROM `product`
+        WHERE `category_id` = $category_id
+      ";
 
-  /**
-   * Get the value of category_id
-   */
-  public function getCategoryId()
-  {
-    return $this->category_id;
-  }
+      $pdoStatment = $pdo->query($sql);
+      $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');
 
-  /**
-   * Get the value of brand_id
-   */
-  public function getBrandId()
-  {
-    return $this->brand_id;
-  }
+      return $result;
+    }
 
-  /**
-   * Get the value of status
-   */
-  public function getStatus()
-  {
-    return $this->status;
-  }
+    //=============================================================
+    // GETTERS
+    //=============================================================
 
-  /**
-   * Get the value of rate
-   */
-  public function getRate()
-  {
-    return $this->rate;
-  }
+    /**
+     * Get the value of type_id
+     */
+    public function getTypeId()
+    {
+      return $this->type_id;
+    }
 
-  /**
-   * Get the value of price
-   */
-  public function getPrice()
-  {
-    return $this->price;
-  }
+    /**
+     * Get the value of category_id
+     */
+    public function getCategoryId()
+    {
+      return $this->category_id;
+    }
 
-  /**
-   * Get the value of picture
-   */
-  public function getPicture()
-  {
-    return $this->picture;
-  }
+    /**
+     * Get the value of brand_id
+     */
+    public function getBrandId()
+    {
+      return $this->brand_id;
+    }
 
-  /**
-   * Get the value of description
-   */
-  public function getDescription()
-  {
-    return $this->description;
-  }
+    /**
+     * Get the value of status
+     */
+    public function getStatus()
+    {
+      return $this->status;
+    }
+
+    /**
+     * Get the value of rate
+     */
+    public function getRate()
+    {
+      return $this->rate;
+    }
+
+    /**
+     * Get the value of price
+     */
+    public function getPrice()
+    {
+      return $this->price;
+    }
+
+    /**
+     * Get the value of picture
+     */
+    public function getPicture()
+    {
+      return $this->picture;
+    }
+
+    /**
+     * Get the value of description
+     */
+    public function getDescription()
+    {
+      return $this->description;
+    }
 }

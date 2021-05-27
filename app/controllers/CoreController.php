@@ -1,5 +1,10 @@
 <?php
 
+  namespace app\controllers;
+
+  use \app\models\Brand;
+  use \app\models\Type;
+
   class CoreController {
 
     // TODO

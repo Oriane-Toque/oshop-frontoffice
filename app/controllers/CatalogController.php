@@ -1,5 +1,10 @@
 <?php
 
+  namespace app\controllers;
+
+  use \app\models\Category;
+  use \app\models\Product;
+
   class CatalogController extends CoreController {
 
     public function category($routeVarInfos) {

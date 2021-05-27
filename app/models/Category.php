@@ -1,109 +1,112 @@
 <?php
+  namespace app\models;
 
-// nom de la classe = nom de la table
-class Category extends CoreModel
-{
-
-  //=============================================================
-  // PROPERTIES
-  //=============================================================
-
-  // propriétés = lignes de nos tables
-  private $subtitle;
-  private $pîcture;
-  private $home_order;
-
-  //=============================================================
-  // METHODS
-  //=============================================================
-
-  // methode qui va intéragir avec la BDD
-  // fait un objet qui représente la ligne dans la BDD
-  public function find($id)
+  use \app\utils\Database;
+  use \PDO;
+  // nom de la classe = nom de la table
+  class Category extends CoreModel
   {
 
-    // TODO : récupérer la catégorie #x sous la forme d'objet Category
-    // on récupère notre objet PDO, la connexion à la DB
-    $pdo = Database::getPDO();
+    //=============================================================
+    // PROPERTIES
+    //=============================================================
 
-    // on récupère la catégorie correspondant à l'id
-    $sql = "
-      SELECT *
-      FROM `category`
-      WHERE `id` = $id
-    ";
+    // propriétés = lignes de nos tables
+    private $subtitle;
+    private $pîcture;
+    private $home_order;
 
-    // execution de la requête
-    $pdoStatement = $pdo->query($sql);
-    // récupération du résultat sous la forme d'un tableau assiocatif
-    $result = $pdoStatement->fetchObject('Category');
-    /* dump($result); */
+    //=============================================================
+    // METHODS
+    //=============================================================
 
-    // on renvoit le résultat
-    return $result;
-  }
+    // methode qui va intéragir avec la BDD
+    // fait un objet qui représente la ligne dans la BDD
+    public function find($id)
+    {
 
-  public function findAll()
-  {
+      // TODO : récupérer la catégorie #x sous la forme d'objet Category
+      // on récupère notre objet PDO, la connexion à la DB
+      $pdo = Database::getPDO();
 
-    // TODO : récupérer toutes les catégories sous la forme d'un tableau d'objets Category
-    $pdo = Database::getPDO();
+      // on récupère la catégorie correspondant à l'id
+      $sql = "
+        SELECT *
+        FROM `category`
+        WHERE `id` = $id
+      ";
 
-    $sql = "
-      SELECT *
-      FROM `category`
-    ";
+      // execution de la requête
+      $pdoStatement = $pdo->query($sql);
+      // récupération du résultat sous la forme d'un tableau assiocatif
+      $result = $pdoStatement->fetchObject('\app\models\Category');
+      /* dump($result); */
 
-    $pdoStatement = $pdo->query($sql);
-    $result = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Category');
-    /* dump($result); */
+      // on renvoit le résultat
+      return $result;
+    }
 
-    return $result;
-  }
+    public function findAll()
+    {
 
-  public function findForHome()
-  {
-    // TODO méthode find des 5 catégories de la home
-    $pdo = Database::getPDO();
+      // TODO : récupérer toutes les catégories sous la forme d'un tableau d'objets Category
+      $pdo = Database::getPDO();
 
-    $sql = "
-      SELECT *
-      FROM `category`
-      WHERE `home_order` > 0
-      ORDER BY `home_order`
-      ASC
-    ";
+      $sql = "
+        SELECT *
+        FROM `category`
+      ";
 
-    $pdoStatement = $pdo->query($sql);
-    return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Category');
+      $pdoStatement = $pdo->query($sql);
+      $result = $pdoStatement->fetchAll(PDO::FETCH_CLASS, '\app\models\Category');
+      /* dump($result); */
 
-  }
+      return $result;
+    }
 
-  //=============================================================
-  // GETTERS
-  //=============================================================
+    public function findForHome()
+    {
+      // TODO méthode find des 5 catégories de la home
+      $pdo = Database::getPDO();
 
-  /**
-   * Get the value of home_order
-   */
-  public function getHomeOrder()
-  {
-    return $this->home_order;
-  }
+      $sql = "
+        SELECT *
+        FROM `category`
+        WHERE `home_order` > 0
+        ORDER BY `home_order`
+        ASC
+      ";
 
-  /**
-   * Get the value of pîcture
-   */
-  public function getPîcture()
-  {
-    return $this->pîcture;
-  }
+      $pdoStatement = $pdo->query($sql);
+      return $pdoStatement->fetchAll(PDO::FETCH_CLASS, '\app\models\Category');
 
-  /**
-   * Get the value of subtitle
-   */
-  public function getSubtitle()
-  {
-    return $this->subtitle;
-  }
+    }
+
+    //=============================================================
+    // GETTERS
+    //=============================================================
+
+    /**
+     * Get the value of home_order
+     */
+    public function getHomeOrder()
+    {
+      return $this->home_order;
+    }
+
+    /**
+     * Get the value of pîcture
+     */
+    public function getPîcture()
+    {
+      return $this->pîcture;
+    }
+
+    /**
+     * Get the value of subtitle
+     */
+    public function getSubtitle()
+    {
+      return $this->subtitle;
+    }
 }
