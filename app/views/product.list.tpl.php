@@ -1,3 +1,9 @@
+<?php 
+  dump($_GET['_url']);
+  if(str_contains($_GET['_url'], 'category') === true) {
+    echo 'coucou';
+  }
+?>
 <section class="hero">
   <div class="container">
     <!-- Breadcrumbs -->
