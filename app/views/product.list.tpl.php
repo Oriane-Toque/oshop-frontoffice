@@ -58,7 +58,7 @@
         </div>
         <div class="py-2">
           <p class="text-muted text-sm mb-1"><?= $viewVars['category']->getName(); ?></p>
-          <h3 class="h6 text-uppercase mb-1"><a href="<?= $router->generate('catalog.product', ['id' => $currentProduct->getId()]) ?>" class="text-dark"><?= $currentProduct->getName(); ?></a></h3><span class="text-muted"><?= $currentProduct->getPrice(); ?></span>
+          <h3 class="h6 text-uppercase mb-1"><a href="<?= $router->generate('catalog.product', ['id' => $currentProduct->getId()]) ?>" class="text-dark"><?= $currentProduct->getName(); ?></a></h3><span class="text-muted"><?= $currentProduct->getPrice(); ?> €</span>
         </div>
       </div>
       <?php endforeach; ?>
@@ -122,7 +122,7 @@
         </div>
         <div class="py-2">
           <p class="text-muted text-sm mb-1"><?= $viewVars['type']->getName(); ?></p>
-          <h3 class="h6 text-uppercase mb-1"><a href="<?= $router->generate('catalog.product', ['id' => $currentProduct->getId()]) ?>" class="text-dark"><?= $currentProduct->getName(); ?></a></h3><span class="text-muted"><?= $currentProduct->getPrice(); ?></span>
+          <h3 class="h6 text-uppercase mb-1"><a href="<?= $router->generate('catalog.product', ['id' => $currentProduct->getId()]) ?>" class="text-dark"><?= $currentProduct->getName(); ?></a></h3><span class="text-muted"><?= $currentProduct->getPrice(); ?> €</span>
         </div>
       </div>
       <?php endforeach; ?>
@@ -187,7 +187,7 @@
         </div>
         <div class="py-2">
           <p class="text-muted text-sm mb-1"><?= $viewVars['brand']->getName(); ?></p>
-          <h3 class="h6 text-uppercase mb-1"><a href="<?= $router->generate('catalog.product', ['id' => $currentProduct->getId()]) ?>" class="text-dark"><?= $currentProduct->getName(); ?></a></h3><span class="text-muted"><?= $currentProduct->getPrice(); ?></span>
+          <h3 class="h6 text-uppercase mb-1"><a href="<?= $router->generate('catalog.product', ['id' => $currentProduct->getId()]) ?>" class="text-dark"><?= $currentProduct->getName(); ?></a></h3><span class="text-muted"><?= $currentProduct->getPrice(); ?> €</span>
         </div>
       </div>
       <?php endforeach; ?>
