@@ -3,7 +3,7 @@
   <div class="container">
     <!-- Breadcrumbs -->
     <ol class="breadcrumb justify-content-center">
-      <li class="breadcrumb-item"><a href="./">Home</a></li>
+      <li class="breadcrumb-item"><a href="<?= $_SERVER['BASE_URI']; ?>">Home</a></li>
       <li class="breadcrumb-item active"><?= $viewVars['category']->getName(); ?></li>
     </ol>
     <!-- Hero Content-->
@@ -72,7 +72,7 @@
   <div class="container">
     <!-- Breadcrumbs -->
     <ol class="breadcrumb justify-content-center">
-      <li class="breadcrumb-item"><a href="./">Home</a></li>
+      <li class="breadcrumb-item"><a href="<?= $_SERVER['BASE_URI']; ?>">Home</a></li>
       <li class="breadcrumb-item active"><?= $viewVars['type']->getName(); ?></li>
     </ol>
     <!-- Hero Content-->
@@ -137,7 +137,7 @@
   <div class="container">
     <!-- Breadcrumbs -->
     <ol class="breadcrumb justify-content-center">
-      <li class="breadcrumb-item"><a href="./">Home</a></li>
+      <li class="breadcrumb-item"><a href="<?= $_SERVER['BASE_URI']; ?>">Home</a></li>
       <li class="breadcrumb-item active"><?= $viewVars['brand']->getName(); ?></li>
     </ol>
     <!-- Hero Content-->

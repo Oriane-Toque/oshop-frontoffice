@@ -43,7 +43,7 @@
             <div class="container-fluid">
 
                 <!-- Navbar Header  -->
-                <a href="index.html" class="navbar-brand">
+                <a href="<?= $router->generate( 'main.home' ) ?>" class="navbar-brand">
                     oShop
                 </a>
                 <button type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">
