@@ -24,11 +24,11 @@
           <h3 class="h3 text-uppercase mb-1"><?= $viewVars['product']->getName(); ?></h3>
           <div class="text-muted">by <em>BOOTstrap</em></div>
           <div>
-            <i class="fa fa-star<?php if($viewVars['product']->getRate() < '1') : echo '-o'; endif;?>"></i>
-            <i class="fa fa-star<?php if($viewVars['product']->getRate() < '2') : echo '-o'; endif;?>"></i>
-            <i class="fa fa-star<?php if($viewVars['product']->getRate() < '3') : echo '-o'; endif;?>"></i>
-            <i class="fa fa-star<?php if($viewVars['product']->getRate() < '4') : echo '-o'; endif;?>"></i>
-            <i class="fa fa-star<?php if($viewVars['product']->getRate() < '5') : echo '-o'; endif;?>"></i>
+            <!-- Note étoiles -> améliorations, dynamisations grace à la boucle et condition avec opérateur ternaire
+            si note < $i alors class="fa fa-star" sinon class="fa fa-star-o" -->
+            <?php for ($i = 1; $i < 6; $i++) : ?>
+              <i class="fa fa-star<?= $viewVars['product']->getRate() < $i ? "-o" : "" ?>"></i>
+            <?php endfor ?>
           </div>   
         </div>
         <div class="my-2">
