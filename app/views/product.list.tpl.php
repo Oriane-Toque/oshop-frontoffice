@@ -3,7 +3,7 @@
       <!-- Breadcrumbs -->
       <ol class="breadcrumb justify-content-center">
         <li class="breadcrumb-item"><a href="<?= $_SERVER['BASE_URI']; ?>">Home</a></li>
-        <li class="breadcrumb-item active"><?= $viewVars[$viewVars['page']]->getName(); ?></li>
+        <li class="breadcrumb-item active"><a href="<?= $router->generate('catalog.'.$viewVars['page'], ['id' => $viewVars[$viewVars['page']]->getId()]); ?>"><?= $viewVars[$viewVars['page']]->getName(); ?></a></li>
       </ol>
       <!-- Hero Content-->
       <div class="hero-content pb-5 text-center">
