@@ -11,7 +11,7 @@
       // on instancie notre model
       $category = new Category();
       // on appelle ensuite sa méthode find pour récupérer la bonne catégorie
-      $category = $category->findByOrderHome();
+      $category = $category->findForHome();
 
       $viewVars = [
         'category' => $category

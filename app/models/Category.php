@@ -82,24 +82,6 @@
 
     }
 
-    public function findByOrderHome()
-    {
-      $pdo = Database::getPDO();
-
-      $sql = "
-        SELECT *
-        FROM `category`
-        WHERE `home_order` > 0
-        ORDER BY `home_order`
-        ASC
-      ";
-
-      $pdoStatement = $pdo->query($sql);
-      $result = $pdoStatement->fetchAll(PDO:: FETCH_CLASS, '\app\models\Category');
-
-      return $result;
-    }
-
     //=============================================================
     // GETTERS
     //=============================================================
