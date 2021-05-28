@@ -5,6 +5,7 @@
   use \app\models\Category;
   use \app\models\Product;
   use \app\models\Type;
+  use \app\models\Brand;
 
   class CatalogController extends CoreController {
 
@@ -69,8 +70,24 @@
     }
 
     public function brand($routeVarInfos) {
+      
+      // on instancie notre model
+      $brand = new Brand();
+      // on appelle ensuite sa méthode find pour récupérer la bonne catégorie
+      $brand = $brand->find($routeVarInfos['id']);
+      /* dump($category->getName()); */
 
-      $this->show('product.list');
+      // on a besoin de récupérer les produits par catégorie
+      $productModel = new Product();
+      // vu qu'on a récupéré la catégorie précédemment, on peut utiliser notre variable $category et récupérer son id grace à son getter
+      $products_brand = $productModel->findByBrand($routeVarInfos['id']);
+
+      $viewVars = [
+        'brand' => $brand,
+        'products_brand' => $products_brand
+      ];
+
+      $this->show('product.list', $viewVars);
     }
   }
 

@@ -100,6 +100,23 @@
       return $result;
     }
 
+    // TODO méthode qui retourne tous les produits d'une marque
+    public function findByBrand($brand_id)
+    {
+      $pdo = Database::getPDO();
+
+      $sql = "
+        SELECT *
+        FROM `product`
+        WHERE `brand_id` = $brand_id
+      ";
+
+      $pdoStatment = $pdo->query($sql);
+      $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');
+
+      return $result;
+    }
+
     //=============================================================
     // GETTERS
     //=============================================================

@@ -38,8 +38,7 @@
       ";
 
       $pdoStatment = $pdo->query($sql);
-      $result = $pdoStatment->fetchObject('Brand');
-      dump($result);
+      $result = $pdoStatment->fetchObject('\app\models\Brand');
       return $result;
     }
 
