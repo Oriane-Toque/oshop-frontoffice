@@ -3,7 +3,7 @@
     <!-- Breadcrumbs -->
     <ol class="breadcrumb justify-content-center">
       <li class="breadcrumb-item"><a href="<?= $_SERVER['BASE_URI'] ?>">Home</a></li>
-      <li class="breadcrumb-item active">Detente</li>
+      <li class="breadcrumb-item active"><a href="<?= $router->generate('catalog.category', ['id' => $viewVars['category']->getId()]); ?>"><?= $viewVars['category']->getName(); ?></a></li>
     </ol>
   </div>
 </section>
@@ -22,7 +22,7 @@
       <div class="col-lg-6 col-sm-12">
         <div class="mb-3">
           <h3 class="h3 text-uppercase mb-1"><?= $viewVars['product']->getName(); ?></h3>
-          <div class="text-muted">by <em>BOOTstrap</em></div>
+          <div class="text-muted">by <em><?= $viewVars['brand']->getName(); ?></em></div>
           <div>
             <!-- Note étoiles -> améliorations, dynamisations grace à la boucle et condition avec opérateur ternaire
             si note < $i alors class="fa fa-star" sinon class="fa fa-star-o" -->

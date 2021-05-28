@@ -43,6 +43,8 @@
       // deuxième solution qu'on va utiliser
       $viewVars['common'] = $this->commonViewVars;
 
+      /* dump($viewVars); */
+
       require_once __DIR__.'/../views/partials/header.tpl.php';
       require_once __DIR__.'/../views/'.$viewName.'.tpl.php';
       require_once __DIR__.'/../views/partials/footer.tpl.php';

@@ -40,8 +40,16 @@
       $productModel = new Product();
       $product = $productModel->find($routeVarInfos['id']);
 
+      $brandModel = new Brand();
+      $brand = $brandModel->find($product->getBrandId());
+
+      $categoryModel = new Category();
+      $category = $categoryModel->find($product->getCategoryId());
+
       $viewVars = [
-        'product' => $product
+        'product' => $product,
+        'brand' => $brand,
+        'category' => $category
       ];
 
       $this->show('product', $viewVars);
