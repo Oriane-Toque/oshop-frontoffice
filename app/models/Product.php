@@ -68,7 +68,7 @@
 
     // TODO méthode qui retourne tous les produits d'une catégorie
     // paramètre optionnel tri
-    public function findByCategory($category_id, $order='')
+    public function findByCategory($category_id)
     {
       $pdo = Database::getPDO();
 
@@ -78,32 +78,32 @@
         WHERE `category_id` = $category_id
       ";
 
-      if($order === 'name') {
+      if (str_contains($_GET['_url'], 'by-name') === true) {
         
         $sql = "
-        SELECT *
-        FROM `product`
-        WHERE `category_id` = $category_id
-        ORDER BY `name`
-        ASC
+          SELECT *
+          FROM `product`
+          WHERE `category_id` = $category_id
+          ORDER BY `name`
+          ASC
       ";
-      } elseif($order === 'price') {
+      } elseif(str_contains($_GET['_url'], 'by-price') === true) {
 
         $sql = "
-        SELECT *
-        FROM `product`
-        WHERE `category_id` = $category_id
-        ORDER BY `price`
-        ASC
+          SELECT *
+          FROM `product`
+          WHERE `category_id` = $category_id
+          ORDER BY `price`
+          ASC
       ";
-      } elseif($order === 'rate') {
+      } elseif(str_contains($_GET['_url'], 'by-rate') === true) {
 
         $sql = "
-        SELECT *
-        FROM `product`
-        WHERE `category_id` = $category_id
-        ORDER BY `rate`
-        ASC
+          SELECT *
+          FROM `product`
+          WHERE `category_id` = $category_id
+          ORDER BY `rate`
+          ASC
       ";
       }
 
