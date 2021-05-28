@@ -67,7 +67,8 @@
     }
 
     // TODO méthode qui retourne tous les produits d'une catégorie
-    public function findByCategory($category_id)
+    // paramètre optionnel tri
+    public function findByCategory($category_id, $order='')
     {
       $pdo = Database::getPDO();
 
@@ -76,6 +77,35 @@
         FROM `product`
         WHERE `category_id` = $category_id
       ";
+
+      if($order === 'name') {
+        
+        $sql = "
+        SELECT *
+        FROM `product`
+        WHERE `category_id` = $category_id
+        ORDER BY `name`
+        ASC
+      ";
+      } elseif($order === 'price') {
+
+        $sql = "
+        SELECT *
+        FROM `product`
+        WHERE `category_id` = $category_id
+        ORDER BY `price`
+        ASC
+      ";
+      } elseif($order === 'rate') {
+
+        $sql = "
+        SELECT *
+        FROM `product`
+        WHERE `category_id` = $category_id
+        ORDER BY `rate`
+        ASC
+      ";
+      }
 
       $pdoStatment = $pdo->query($sql);
       $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');
@@ -117,64 +147,6 @@
       return $result;
     }
 
-    // TODO méthode qui retourne tous les produits d'une catégorie, triés par nom
-    public function findByCategoryOrderName($category_id)
-    {
-      $pdo = Database::getPDO();
-
-      $sql = "
-        SELECT *
-        FROM `product`
-        WHERE `category_id` = $category_id
-        ORDER BY `name`
-        ASC
-      ";
-
-      $pdoStatment = $pdo->query($sql);
-      $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');
-
-      return $result;
-    }
-
-    // TODO méthode qui retourne tous les produits d'une catégorie, triés par prix
-
-    public function findByCategoryOrderPrice($category_id)
-    {
-      $pdo = Database::getPDO();
-
-      $sql = "
-        SELECT *
-        FROM `product`
-        WHERE `category_id` = $category_id
-        ORDER BY `price`
-        ASC
-      ";
-
-      $pdoStatment = $pdo->query($sql);
-      $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');
-
-      return $result;
-    }
-
-    // TODO méthode qui retourne tous les produits d'une catégorie, triés par note
-
-    public function findByCategoryOrderRate($category_id)
-    {
-      $pdo = Database::getPDO();
-
-      $sql = "
-        SELECT *
-        FROM `product`
-        WHERE `category_id` = $category_id
-        ORDER BY `rate`
-        ASC
-      ";
-
-      $pdoStatment = $pdo->query($sql);
-      $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');
-
-      return $result;
-    }
     //=============================================================
     // GETTERS
     //=============================================================

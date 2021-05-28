@@ -41,6 +41,10 @@
 
   // CatalogController --------------------------------------------------------------------------
   $router->map('GET', '/category/[i:id]', 'CatalogController@category', 'catalog.category');
+  $router->map('GET', '/category/[i:id]/by-name', 'CatalogController@category', 'catalog.category.byname');
+  $router->map('GET', '/category/[i:id]/by-rate', 'CatalogController@category', 'catalog.category.byrate');
+  $router->map('GET', '/category/[i:id]/by-price', 'CatalogController@category', 'catalog.category.byprice');
+
   $router->map('GET', '/brand/[i:id]',    'CatalogController@brand',    'catalog.brand');
   $router->map('GET', '/type/[i:id]',     'CatalogController@type',     'catalog.type');
   $router->map('GET', '/product/[i:id]',  'CatalogController@product',  'catalog.product');
