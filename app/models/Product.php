@@ -83,6 +83,23 @@
       return $result;
     }
 
+    // TODO méthode qui retourne tous les produits d'un type
+    public function findByType($type_id)
+    {
+      $pdo = Database::getPDO();
+
+      $sql = "
+        SELECT *
+        FROM `product`
+        WHERE `type_id` = $type_id
+      ";
+
+      $pdoStatment = $pdo->query($sql);
+      $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');
+
+      return $result;
+    }
+
     //=============================================================
     // GETTERS
     //=============================================================

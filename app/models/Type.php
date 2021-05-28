@@ -24,7 +24,7 @@
     // METHODS
     //=============================================================
 
-    // TODO méthode qui récupère la marque d'un id donné
+    // TODO méthode qui récupère le type d'un id donné
     public function find($id)
     {
 
@@ -37,12 +37,12 @@
       ";
 
       $pdoStatment = $pdo->query($sql);
-      $result = $pdoStatment->fetchObject('Type');
-      dump($result);
+      $result = $pdoStatment->fetchObject('\app\models\Type');
+
       return $result;
     }
 
-    // TODO méthode qui récupère toutes les marques
+    // TODO méthode qui récupère toutes les types
     public function findAll()
     {
 
