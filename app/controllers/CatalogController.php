@@ -20,12 +20,13 @@
       // on a besoin de récupérer les produits par catégorie
       $productModel = new Product();
       // vu qu'on a récupéré la catégorie précédemment, on peut utiliser notre variable $category et récupérer son id grace à son getter
-      $products_category = $productModel->findByCategory($routeVarInfos['id']);
+      $products = $productModel->findByCategory($routeVarInfos['id']);
 
       // création de clés => valeurs
       $viewVars = [ 
         'category' => $category,
-        'products_category' => $products_category
+        'products' => $products,
+        'page' => "category"
       ];
 
       if ($category === false) :
@@ -66,14 +67,19 @@
       // on a besoin de récupérer les produits par catégorie
       $productModel = new Product();
       // vu qu'on a récupéré la catégorie précédemment, on peut utiliser notre variable $category et récupérer son id grace à son getter
-      $products_type = $productModel->findByType($routeVarInfos['id']);
+      $products = $productModel->findByType($routeVarInfos['id']);
 
       $viewVars = [
         'type' => $type,
-        'products_type' => $products_type
+        'products' => $products,
+        'page' => "type"
       ];
 
-      $this->show('product.list', $viewVars);
+      if ($type === false) :
+        echo '<h2>Type introuvable</h2>';
+      else :
+        $this->show('product.list', $viewVars);
+      endif;
 
     }
 
@@ -88,14 +94,19 @@
       // on a besoin de récupérer les produits par catégorie
       $productModel = new Product();
       // vu qu'on a récupéré la catégorie précédemment, on peut utiliser notre variable $category et récupérer son id grace à son getter
-      $products_brand = $productModel->findByBrand($routeVarInfos['id']);
+      $products = $productModel->findByBrand($routeVarInfos['id']);
 
       $viewVars = [
         'brand' => $brand,
-        'products_brand' => $products_brand
+        'products' => $products,
+        'page' => "brand"
       ];
 
-      $this->show('product.list', $viewVars);
+      if ($brand === false) :
+        echo '<h2>Marque introuvable</h2>';
+      else :
+        $this->show('product.list', $viewVars);
+      endif;
     }
   }
 
