@@ -124,6 +124,35 @@
         WHERE `type_id` = $type_id
       ";
 
+      if (str_contains($_GET['_url'], 'by-name') === true) {
+        
+        $sql = "
+          SELECT *
+          FROM `product`
+          WHERE `type_id` = $type_id
+          ORDER BY `name`
+          ASC
+      ";
+      } elseif(str_contains($_GET['_url'], 'by-price') === true) {
+
+        $sql = "
+          SELECT *
+          FROM `product`
+          WHERE `type_id` = $type_id
+          ORDER BY `price`
+          ASC
+      ";
+      } elseif(str_contains($_GET['_url'], 'by-rate') === true) {
+
+        $sql = "
+          SELECT *
+          FROM `product`
+          WHERE `type_id` = $type_id
+          ORDER BY `rate`
+          ASC
+      ";
+      }
+
       $pdoStatment = $pdo->query($sql);
       $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');
 
@@ -140,6 +169,35 @@
         FROM `product`
         WHERE `brand_id` = $brand_id
       ";
+
+      if (str_contains($_GET['_url'], 'by-name') === true) {
+        
+        $sql = "
+          SELECT *
+          FROM `product`
+          WHERE `brand_id` = $brand_id
+          ORDER BY `name`
+          ASC
+      ";
+      } elseif(str_contains($_GET['_url'], 'by-price') === true) {
+
+        $sql = "
+          SELECT *
+          FROM `product`
+          WHERE `brand_id` = $brand_id
+          ORDER BY `price`
+          ASC
+      ";
+      } elseif(str_contains($_GET['_url'], 'by-rate') === true) {
+
+        $sql = "
+          SELECT *
+          FROM `product`
+          WHERE `brand_id` = $brand_id
+          ORDER BY `rate`
+          ASC
+      ";
+      }
 
       $pdoStatment = $pdo->query($sql);
       $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');

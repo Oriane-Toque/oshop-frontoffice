@@ -98,12 +98,18 @@
         <div class="mr-3 mb-3"><span class="mr-2">Voir</span><a href="#" class="product-grid-header-show active">12 </a><a href="#" class="product-grid-header-show ">24 </a><a href="#" class="product-grid-header-show ">Tout </a>
         </div>
         <div class="mb-3 d-flex align-items-center"><span class="d-inline-block mr-1">Trier par</span>
-          <select class="custom-select w-auto border-0">
-            <option value="orderby_0">Défaut</option>
-            <option value="orderby_1">Nom</option>
-            <option value="orderby_2">Note</option>
-            <option value="orderby_3">Prix</option>
-          </select>
+        <li class="nav-item dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Default
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="<?= $router->generate('catalog.type', ['id' => $viewVars['type']->getId()]); ?>">Default</a></li>
+              <li><a href="<?= $router->generate('catalog.type.byname', ['id' => $viewVars['type']->getId()]); ?>">Name</a></li>
+              <li><a href="<?= $router->generate('catalog.type.byrate', ['id' => $viewVars['type']->getId()]); ?>">Rate</a></li>
+              <li><a href="<?= $router->generate('catalog.type.byprice', ['id' => $viewVars['type']->getId()]); ?>">Price</a></li>
+            </ul>
+          </li>
         </div>
       </header>
       <div class="row">
@@ -163,12 +169,18 @@
         <div class="mr-3 mb-3"><span class="mr-2">Voir</span><a href="#" class="product-grid-header-show active">12 </a><a href="#" class="product-grid-header-show ">24 </a><a href="#" class="product-grid-header-show ">Tout </a>
         </div>
         <div class="mb-3 d-flex align-items-center"><span class="d-inline-block mr-1">Trier par</span>
-          <select class="custom-select w-auto border-0">
-            <option value="orderby_0">Défaut</option>
-            <option value="orderby_1">Nom</option>
-            <option value="orderby_2">Note</option>
-            <option value="orderby_3">Prix</option>
-          </select>
+        <li class="nav-item dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Default
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="<?= $router->generate('catalog.brand', ['id' => $viewVars['brand']->getId()]); ?>">Default</a></li>
+              <li><a href="<?= $router->generate('catalog.brand.byname', ['id' => $viewVars['brand']->getId()]); ?>">Name</a></li>
+              <li><a href="<?= $router->generate('catalog.brand.byrate', ['id' => $viewVars['brand']->getId()]); ?>">Rate</a></li>
+              <li><a href="<?= $router->generate('catalog.brand.byprice', ['id' => $viewVars['brand']->getId()]); ?>">Price</a></li>
+            </ul>
+          </li>
         </div>
       </header>
       <div class="row">
