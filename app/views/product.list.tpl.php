@@ -29,18 +29,20 @@
         <div class="mr-3 mb-3"><span class="mr-2">Voir</span><a href="#" class="product-grid-header-show active">12 </a><a href="#" class="product-grid-header-show ">24 </a><a href="#" class="product-grid-header-show ">Tout </a>
         </div>
         <div class="mb-3 d-flex align-items-center"><span class="d-inline-block mr-1">Trier par</span>
-          <li class="nav-item dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Default
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="<?= $router->generate('catalog.'.$viewVars['page'], ['id' => $viewVars[$viewVars['page']]->getId()]); ?>">Default</a></li>
-              <li><a href="<?= $router->generate('catalog.'.$viewVars['page'].'.byname', ['id' => $viewVars[$viewVars['page']]->getId()]); ?>">Name</a></li>
-              <li><a href="<?= $router->generate('catalog.'.$viewVars['page'].'.byrate', ['id' => $viewVars[$viewVars['page']]->getId()]); ?>">Rate</a></li>
-              <li><a href="<?= $router->generate('catalog.'.$viewVars['page'].'.byprice', ['id' => $viewVars[$viewVars['page']]->getId()]); ?>">Price</a></li>
-            </ul>
-          </li>
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Default
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="<?= $router->generate('catalog.'.$viewVars['page'], ['id' => $viewVars[$viewVars['page']]->getId()]); ?>">Default</a></li>
+                <li><a href="<?= $router->generate('catalog.'.$viewVars['page'].'.byname', ['id' => $viewVars[$viewVars['page']]->getId()]); ?>">Name</a></li>
+                <li><a href="<?= $router->generate('catalog.'.$viewVars['page'].'.byrate', ['id' => $viewVars[$viewVars['page']]->getId()]); ?>">Rate</a></li>
+                <li><a href="<?= $router->generate('catalog.'.$viewVars['page'].'.byprice', ['id' => $viewVars[$viewVars['page']]->getId()]); ?>">Price</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </header>
       <div class="row">
