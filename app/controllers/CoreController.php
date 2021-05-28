@@ -4,6 +4,7 @@
 
   use \app\models\Brand;
   use \app\models\Type;
+  use \app\models\Category;
 
   class CoreController {
 
@@ -16,12 +17,20 @@
       // dans notre constructeur de notre controleur on va récupérer toutes les données communes à toutes nos pages (les pages générées par ce controleur)
       $brandModel = new Brand();
       $footerBrands = $brandModel->findForFooter();
+      $brandList = $brandModel->findAll();
 
       $typeModel = new Type();
       $footerTypes = $typeModel->findForFooter();
+      $typeList = $typeModel->findAll();
+
+      $categoryModel = new Category();
+      $categoryList = $categoryModel->findAll();
 
       $this->commonViewVars['footerTypes'] = $footerTypes;
       $this->commonViewVars['footerBrands'] = $footerBrands;
+      $this->commonViewVars['typeList'] = $typeList;
+      $this->commonViewVars['brandList'] = $brandList;
+      $this->commonViewVars['categoryList'] = $categoryList;
     }
 
     protected function show($viewName, $viewVars = []) {
