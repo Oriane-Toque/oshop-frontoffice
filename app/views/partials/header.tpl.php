@@ -75,17 +75,27 @@
               <?php endforeach; ?>
               </ul>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Types de produit</a>
+            <li class="nav-item dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Types de produit
+              <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <?php foreach($viewVars['common']['typeList'] as $currentType) : ?>
+                <li><a href="<?= $router->generate('catalog.type', ['id' => $currentType->getId()]); ?>"><?= $currentType->getName(); ?></a></li>
+              <?php endforeach; ?>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Marques</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Contact</a>
+            <li class="nav-item dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Marques
+              <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+              <?php foreach($viewVars['common']['brandList'] as $currentBrand) : ?>
+                <li><a href="<?= $router->generate('catalog.brand', ['id' => $currentBrand->getId()]); ?>"><?= $currentBrand->getName(); ?></a></li>
+              <?php endforeach; ?>
+              </ul>
             </li>
           </ul>
 
