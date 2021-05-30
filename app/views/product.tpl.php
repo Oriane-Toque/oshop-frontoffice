@@ -32,7 +32,7 @@
           </div>   
         </div>
         <div class="my-2">
-          <div class="text-muted"><span class="h4"><?= $viewVars['product']->getPrice(); ?> €</span> TTC</div>
+          <div class="text-muted"><span class="h4"><?= $viewVars['product']->getPriceForCurrentCurrency(); ?></span> TTC</div>
         </div>
         <div class="product-action-buttons">
           <form action="" method="post">

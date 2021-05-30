@@ -205,6 +205,32 @@
       return $result;
     }
 
+    // TODO méthode qui retourne le prix à la devise demandée
+    public function getPriceForCurrentCurrency() {
+
+      // par défaut si $_SESSION vide, on retourne le prix en euro
+      $priceConvert = $this->price.' €';
+
+      // si USD retourne prix en dollar
+      if ($_SESSION === ['currency'=>'USD']) {
+        
+        $priceConvert = ($this->price * 1.1).' $';
+
+      // si GBP retourne prix en livre sterling
+      } elseif ($_SESSION === ['currency'=>'GBP']) {
+
+        $priceConvert = ($this->price * 1.16).' £';
+
+      // si EUR retourne prix en euro
+      } elseif ($_SESSION === ['currency'=>'EUR']) {
+
+        $priceConvert = ($this->price).' €';
+      }
+
+      // retourne le prix ou le prix convertis à la demande de l'utilisateur
+      return $priceConvert;
+    }
+
     //=============================================================
     // GETTERS
     //=============================================================

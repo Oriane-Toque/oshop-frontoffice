@@ -26,17 +26,20 @@
               </li>
             </ul>
           </div>
+          <!-- TODO AMELIORER EN AYANT ACCES A NOS DEVISES SUR TOUTES LES PAGES PB D'ACCESSIBILITE DE $viewVars['page'] -->
+          <?php if(isset($viewVars['page'])) : ?>
           <div class="col-sm-5 d-flex justify-content-end">
             <!-- Currency Dropdown-->
-
             <div class="dropdown pl-3 ml-0">
-              <a id="currencyDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle topbar-link">EUR</a>
+              <a id="currencyDropdown" href="<?= $router->generate('catalog.'.$viewVars['page'], ['id' => $viewVars[$viewVars['page']]->getId()]); ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle topbar-link">EUR</a>
               <div aria-labelledby="currencyDropdown" class="dropdown-menu dropdown-menu-right">
-                <a href="#" class="dropdown-item text-sm">USD</a>
-                <a href="#" class="dropdown-item text-sm">GBP</a>
+                <a href="<?= $router->generate('catalog.'.$viewVars['page'].'.EUR', ['id' => $viewVars[$viewVars['page']]->getId()]); ?>" class="dropdown-item text-sm">EUR</a>
+                <a href="<?= $router->generate('catalog.'.$viewVars['page'].'.USD', ['id' => $viewVars[$viewVars['page']]->getId()]); ?>" class="dropdown-item text-sm">USD</a>
+                <a href="<?= $router->generate('catalog.'.$viewVars['page'].'.GBP', ['id' => $viewVars[$viewVars['page']]->getId()]); ?>" class="dropdown-item text-sm">GBP</a>
               </div>
             </div>
           </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>
