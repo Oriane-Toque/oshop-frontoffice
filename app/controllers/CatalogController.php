@@ -50,7 +50,8 @@
       $viewVars = [
         'product' => $product,
         'brand' => $brand,
-        'category' => $category
+        'category' => $category,
+        'page' => "product"
       ];
 
       $this->show('product', $viewVars);

@@ -26,7 +26,7 @@
               </li>
             </ul>
           </div>
-          <!-- TODO AMELIORER EN AYANT ACCES A NOS DEVISES SUR TOUTES LES PAGES PB D'ACCESSIBILITE DE $viewVars['page'] -->
+
           <?php if(isset($viewVars['page'])) : ?>
           <div class="col-sm-5 d-flex justify-content-end">
             <!-- Currency Dropdown-->
