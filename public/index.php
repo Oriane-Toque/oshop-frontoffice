@@ -11,6 +11,18 @@
   // c'est à cela qu'on va comparer nos url de routes
   $currentURL = $_GET['_url'] ?? '/';
 
+  $sortProducts = [
+    'byname',
+    'byrate',
+    'byprice'
+  ];
+
+  $convertDevise = [
+    'EUR',
+    'USD',
+    'GBP'
+  ];
+
   // tableau des routes
 /*  $routes = [
     '/' => [
@@ -41,19 +53,22 @@
 
   // CatalogController --------------------------------------------------------------------------
   $router->map('GET', '/category/[i:id]', 'CatalogController@category', 'catalog.category');
-  $router->map('GET', '/category/[i:id]/by-name', 'CatalogController@category', 'catalog.category.byname');
-  $router->map('GET', '/category/[i:id]/by-rate', 'CatalogController@category', 'catalog.category.byrate');
-  $router->map('GET', '/category/[i:id]/by-price', 'CatalogController@category', 'catalog.category.byprice');
-
-  $router->map('GET', '/brand/[i:id]',    'CatalogController@brand',    'catalog.brand');
-  $router->map('GET', '/brand/[i:id]/by-name', 'CatalogController@brand', 'catalog.brand.byname');
-  $router->map('GET', '/brand/[i:id]/by-rate', 'CatalogController@brand', 'catalog.brand.byrate');
-  $router->map('GET', '/brand/[i:id]/by-price', 'CatalogController@brand', 'catalog.brand.byprice');
-
+  $router->map('GET', '/brand/[i:id]',     'CatalogController@brand',     'catalog.brand');
   $router->map('GET', '/type/[i:id]',     'CatalogController@type',     'catalog.type');
-  $router->map('GET', '/type/[i:id]/by-name', 'CatalogController@type', 'catalog.type.byname');
-  $router->map('GET', '/type/[i:id]/by-rate', 'CatalogController@type', 'catalog.type.byrate');
-  $router->map('GET', '/type/[i:id]/by-price', 'CatalogController@type', 'catalog.type.byprice');
+
+  /* ROUTES POUR LE TRI DES PRODUITS */
+  foreach($sortProducts as $sortProduct) :
+    $router->map('GET', "/category/[i:id]/$sortProduct", 'CatalogController@category', "catalog.category.$sortProduct");
+    $router->map('GET', "/brand/[i:id]/$sortProduct", 'CatalogController@brand', "catalog.brand.$sortProduct");
+    $router->map('GET', "/type/[i:id]/$sortProduct", 'CatalogController@type', "catalog.type.$sortProduct");
+  endforeach;
+
+  /* ROUTES CONVERSION DEVISES */
+  foreach($convertDevise as $devise) :
+    $router->map('GET', "/category/[i:id]/$devise", 'CatalogController@category', "catalog.category.$devise");
+    $router->map('GET', "/brand/[i:id]/$devise", 'CatalogController@brand', "catalog.brand.$devise");
+    $router->map('GET', "/type/[i:id]/$devise", 'CatalogController@type', "catalog.type.$devise");
+  endforeach;
 
   $router->map('GET', '/product/[i:id]',  'CatalogController@product',  'catalog.product');
 

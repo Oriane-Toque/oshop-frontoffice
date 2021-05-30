@@ -28,6 +28,7 @@
           </div>
           <div class="col-sm-5 d-flex justify-content-end">
             <!-- Currency Dropdown-->
+
             <div class="dropdown pl-3 ml-0">
               <a id="currencyDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle topbar-link">EUR</a>
               <div aria-labelledby="currencyDropdown" class="dropdown-menu dropdown-menu-right">
