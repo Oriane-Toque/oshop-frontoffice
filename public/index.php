@@ -73,6 +73,7 @@
     $router->map('GET', "/brand/[i:id]/$devise", 'CatalogController@brand', "catalog.brand.$devise");
     $router->map('GET', "/type/[i:id]/$devise", 'CatalogController@type', "catalog.type.$devise");
     $router->map('GET', "/product/[i:id]/$devise", 'CatalogController@product', "catalog.product.$devise");
+    $router->map('GET', "/$devise", 'MainController@product', "main.home.$devise");
   endforeach;
 
   // condition qui vérifie la devise sélectionné et la stocke dans $_SESSION

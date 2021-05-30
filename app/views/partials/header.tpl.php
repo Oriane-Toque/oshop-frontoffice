@@ -39,6 +39,18 @@
               </div>
             </div>
           </div>
+          <?php else : ?>
+          <div class="col-sm-5 d-flex justify-content-end">
+            <!-- Currency Dropdown-->
+            <div class="dropdown pl-3 ml-0">
+              <a id="currencyDropdown" href="<?= $router->generate('main.home'); ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle topbar-link">EUR</a>
+              <div aria-labelledby="currencyDropdown" class="dropdown-menu dropdown-menu-right">
+                <a href="<?= $router->generate('main.home.EUR'); ?>" class="dropdown-item text-sm">EUR</a>
+                <a href="<?= $router->generate('main.home.USD'); ?>" class="dropdown-item text-sm">USD</a>
+                <a href="<?= $router->generate('main.home.GBP'); ?>" class="dropdown-item text-sm">GBP</a>
+              </div>
+            </div>
+          </div>
           <?php endif; ?>
         </div>
       </div>

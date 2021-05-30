@@ -124,7 +124,7 @@
         WHERE `type_id` = $type_id
       ";
 
-      if (str_contains($_GET['_url'], 'by-name') === true) {
+      if (str_contains($_GET['_url'], 'byname') === true) {
         
         $sql = "
           SELECT *
@@ -133,7 +133,7 @@
           ORDER BY `name`
           ASC
       ";
-      } elseif(str_contains($_GET['_url'], 'by-price') === true) {
+      } elseif(str_contains($_GET['_url'], 'byprice') === true) {
 
         $sql = "
           SELECT *
@@ -142,7 +142,7 @@
           ORDER BY `price`
           ASC
       ";
-      } elseif(str_contains($_GET['_url'], 'by-rate') === true) {
+      } elseif(str_contains($_GET['_url'], 'byrate') === true) {
 
         $sql = "
           SELECT *
@@ -170,7 +170,7 @@
         WHERE `brand_id` = $brand_id
       ";
 
-      if (str_contains($_GET['_url'], 'by-name') === true) {
+      if (str_contains($_GET['_url'], 'byname') === true) {
         
         $sql = "
           SELECT *
@@ -179,7 +179,7 @@
           ORDER BY `name`
           ASC
       ";
-      } elseif(str_contains($_GET['_url'], 'by-price') === true) {
+      } elseif(str_contains($_GET['_url'], 'byprice') === true) {
 
         $sql = "
           SELECT *
@@ -188,7 +188,7 @@
           ORDER BY `price`
           ASC
       ";
-      } elseif(str_contains($_GET['_url'], 'by-rate') === true) {
+      } elseif(str_contains($_GET['_url'], 'byrate') === true) {
 
         $sql = "
           SELECT *
