@@ -72,40 +72,40 @@
     {
       $pdo = Database::getPDO();
 
-      $sql = "
-        SELECT *
-        FROM `product`
-        WHERE `category_id` = $category_id
-      ";
+        if (str_contains($_SERVER['REQUEST_URI'], 'byname') === true) {
+          
+          $sql = "
+            SELECT *
+            FROM `product`
+            WHERE `category_id` = $category_id
+            ORDER BY `name`
+            ASC
+        ";
+        } elseif(str_contains($_SERVER['REQUEST_URI'], 'byprice') === true) {
 
-      if (str_contains($_GET['_url'], 'byname') === true) {
-        
-        $sql = "
-          SELECT *
-          FROM `product`
-          WHERE `category_id` = $category_id
-          ORDER BY `name`
-          ASC
-      ";
-      } elseif(str_contains($_GET['_url'], 'byprice') === true) {
+          $sql = "
+            SELECT *
+            FROM `product`
+            WHERE `category_id` = $category_id
+            ORDER BY `price`
+            ASC
+        ";
+        } elseif(str_contains($_SERVER['REQUEST_URI'], 'byrate') === true) {
 
-        $sql = "
-          SELECT *
-          FROM `product`
-          WHERE `category_id` = $category_id
-          ORDER BY `price`
-          ASC
-      ";
-      } elseif(str_contains($_GET['_url'], 'byrate') === true) {
-
-        $sql = "
-          SELECT *
-          FROM `product`
-          WHERE `category_id` = $category_id
-          ORDER BY `rate`
-          ASC
-      ";
-      }
+          $sql = "
+            SELECT *
+            FROM `product`
+            WHERE `category_id` = $category_id
+            ORDER BY `rate`
+            ASC
+        ";
+        } else {
+          $sql = "
+            SELECT *
+            FROM `product`
+            WHERE `category_id` = $category_id
+          ";
+        } 
 
       $pdoStatment = $pdo->query($sql);
       $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');
@@ -118,41 +118,41 @@
     {
       $pdo = Database::getPDO();
 
-      $sql = "
-        SELECT *
-        FROM `product`
-        WHERE `type_id` = $type_id
-      ";
+        if (str_contains($_SERVER['REQUEST_URI'], 'byname') === true) {
+          
+          $sql = "
+            SELECT *
+            FROM `product`
+            WHERE `type_id` = $type_id
+            ORDER BY `name`
+            ASC
+        ";
+        } elseif(str_contains($_SERVER['REQUEST_URI'], 'byprice') === true) {
 
-      if (str_contains($_GET['_url'], 'byname') === true) {
-        
-        $sql = "
-          SELECT *
-          FROM `product`
-          WHERE `type_id` = $type_id
-          ORDER BY `name`
-          ASC
-      ";
-      } elseif(str_contains($_GET['_url'], 'byprice') === true) {
+          $sql = "
+            SELECT *
+            FROM `product`
+            WHERE `type_id` = $type_id
+            ORDER BY `price`
+            ASC
+        ";
+        } elseif(str_contains($_SERVER['REQUEST_URI'], 'byrate') === true) {
 
-        $sql = "
-          SELECT *
-          FROM `product`
-          WHERE `type_id` = $type_id
-          ORDER BY `price`
-          ASC
-      ";
-      } elseif(str_contains($_GET['_url'], 'byrate') === true) {
-
-        $sql = "
-          SELECT *
-          FROM `product`
-          WHERE `type_id` = $type_id
-          ORDER BY `rate`
-          ASC
-      ";
-      }
-
+          $sql = "
+            SELECT *
+            FROM `product`
+            WHERE `type_id` = $type_id
+            ORDER BY `rate`
+            ASC
+        ";
+        } else {
+          $sql = "
+            SELECT *
+            FROM `product`
+            WHERE `type_id` = $type_id
+          ";
+        }  
+      
       $pdoStatment = $pdo->query($sql);
       $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');
 
@@ -164,41 +164,41 @@
     {
       $pdo = Database::getPDO();
 
-      $sql = "
-        SELECT *
-        FROM `product`
-        WHERE `brand_id` = $brand_id
-      ";
+        if (str_contains($_SERVER['REQUEST_URI'], 'byname') === true) {
+          
+          $sql = "
+            SELECT *
+            FROM `product`
+            WHERE `brand_id` = $brand_id
+            ORDER BY `name`
+            ASC
+        ";
+        } elseif(str_contains($_SERVER['REQUEST_URI'], 'byprice') === true) {
 
-      if (str_contains($_GET['_url'], 'byname') === true) {
-        
-        $sql = "
-          SELECT *
-          FROM `product`
-          WHERE `brand_id` = $brand_id
-          ORDER BY `name`
-          ASC
-      ";
-      } elseif(str_contains($_GET['_url'], 'byprice') === true) {
+          $sql = "
+            SELECT *
+            FROM `product`
+            WHERE `brand_id` = $brand_id
+            ORDER BY `price`
+            ASC
+        ";
+        } elseif(str_contains($_SERVER['REQUEST_URI'], 'byrate') === true) {
 
-        $sql = "
-          SELECT *
-          FROM `product`
-          WHERE `brand_id` = $brand_id
-          ORDER BY `price`
-          ASC
-      ";
-      } elseif(str_contains($_GET['_url'], 'byrate') === true) {
-
-        $sql = "
-          SELECT *
-          FROM `product`
-          WHERE `brand_id` = $brand_id
-          ORDER BY `rate`
-          ASC
-      ";
-      }
-
+          $sql = "
+            SELECT *
+            FROM `product`
+            WHERE `brand_id` = $brand_id
+            ORDER BY `rate`
+            ASC
+        ";
+        } else {
+          $sql = "
+            SELECT *
+            FROM `product`
+            WHERE `brand_id` = $brand_id
+          ";
+        } 
+      
       $pdoStatment = $pdo->query($sql);
       $result = $pdoStatment->fetchAll(PDO::FETCH_CLASS, '\app\models\Product');
 
@@ -207,9 +207,6 @@
 
     // TODO méthode qui retourne le prix à la devise demandée
     public function getPriceForCurrentCurrency() {
-
-      // par défaut si $_SESSION vide, on retourne le prix en euro
-      $priceConvert = $this->price.' €';
 
       // si USD retourne prix en dollar
       if ($_SESSION === ['currency'=>'USD']) {
@@ -225,6 +222,9 @@
       } elseif ($_SESSION === ['currency'=>'EUR']) {
 
         $priceConvert = ($this->price).' €';
+      } else {
+        // par défaut si $_SESSION vide, on retourne le prix en euro
+        $priceConvert = $this->price.' €';
       }
 
       // retourne le prix ou le prix convertis à la demande de l'utilisateur
