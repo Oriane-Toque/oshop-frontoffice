@@ -78,14 +78,14 @@
 
   // condition qui vérifie la devise sélectionné et la stocke dans $_SESSION
   // puis réorientation vers home avec sauvegarde de la session
-  if(isset($_GET['_url'])) :
-    if(str_contains($_GET['_url'], 'USD') === true) :
+  if(isset($_SERVER['REQUEST_URI'])) :
+    if(str_contains($_SERVER['REQUEST_URI'], 'USD') === true) :
       $_SESSION = ['currency' => 'USD'];
       header('Location:'.$_SERVER['BASE_URI']);
-    elseif(str_contains($_GET['_url'], 'GBP') === true) :
+    elseif(str_contains($_SERVER['REQUEST_URI'], 'GBP') === true) :
       $_SESSION = ['currency' => 'GBP'];
       header('Location:'.$_SERVER['BASE_URI']);
-    elseif(str_contains($_GET['_url'], 'EUR') === true) :
+    elseif(str_contains($_SERVER['REQUEST_URI'], 'EUR') === true) :
       $_SESSION = ['currency' => 'EUR'];
       header('Location:'.$_SERVER['BASE_URI']);
     endif;
